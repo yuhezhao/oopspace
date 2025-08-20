@@ -26,7 +26,6 @@ inline double arrayMax(const double* arr, int size) {
     return m;
 }
 
-// Part 5/7 动态数组
 inline double* dynamicArray(int N) {
     if (N <= 0) return nullptr;
     double* a = new double[N];

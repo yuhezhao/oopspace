@@ -1,43 +1,18 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-// reuse function1
-int *readNumbers() {
-    int *arr = new int[10];
-    for (int i = 0; i < 10; i++) {
-        cin >> arr[i];
-    }
-    return arr;
-}
+// Signature: void print_binary_str(std::string decimal_number)
+void print_binary_str(string decimal_number) {
+    if (decimal_number.length() < 1 || decimal_number.length() > 9) return;
 
-void printNumbers(int *numbers, int length) {
-    for (int i = 0; i < length; i++) {
-        cout << i << " " << numbers[i] << endl;
-    }
-}
+    int num = stoi(decimal_number); 
+    if (num == 0) { cout << "0\n"; return; }
 
-void hexDigits(int *numbers, int length) {
-    for (int i = 0; i < length; i++) {
-        char hexChar;
-        switch (numbers[i]) {
-            case 0:  hexChar = '0'; break;
-            case 1:  hexChar = '1'; break;
-            case 2:  hexChar = '2'; break;
-            case 3:  hexChar = '3'; break;
-            case 4:  hexChar = '4'; break;
-            case 5:  hexChar = '5'; break;
-            case 6:  hexChar = '6'; break;
-            case 7:  hexChar = '7'; break;
-            case 8:  hexChar = '8'; break;
-            case 9:  hexChar = '9'; break;
-            case 10: hexChar = 'A'; break;
-            case 11: hexChar = 'B'; break;
-            case 12: hexChar = 'C'; break;
-            case 13: hexChar = 'D'; break;
-            case 14: hexChar = 'E'; break;
-            case 15: hexChar = 'F'; break;
-            default: hexChar = '?'; 
-        }
-        cout << i << " " << numbers[i] << " " << hexChar << endl;
+    string binary;
+    while (num > 0) {
+        binary = char('0' + (num % 2)) + binary;
+        num /= 2;
     }
+    cout << binary << "\n";
 }
