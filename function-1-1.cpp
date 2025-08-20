@@ -1,9 +1,11 @@
 #include<iostream>
-int sum_diagonal(int array[4][4]){
+int array_sum(int array[], int n) {
+    if (n < 1) {
+        return 0;
+    }
     int sum=0;
-    for(int i=0;i<4;i++){
-        sum+= array[i][i];
+    for (int i=0;i<n;i++){
+        sum+=array[i];
     }
     return sum;
 }
-    

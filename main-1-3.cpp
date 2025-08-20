@@ -1,13 +1,7 @@
 #include<iostream>
-using namespace std;
-void count_digits(int array[4][4]);
+int num_count(int array[], int n, int number);
 int main(){
-    int matrix[4][4] = {
-        {1, 2, 3, 4},
-        {5, 6, 7, 8},
-        {9, 0, 1, 2},
-        {3, 4, 5, 6}
-    };
-    count_digits(matrix);
+    int data[]={1, 2, 3, 4, 5};
+    std::cout << "Count of 5: " << num_count(data, 5, 5) << std::endl;
     return 0;
 }

@@ -1,11 +1,8 @@
-#include <iostream>
-using namespace std;
-
-void print_scaled(int array[3][3], int scale); // 函数声明
-
-int main() {
-    int scale = 3;
-    int threebythree[3][3] = {{0,1,2},{3,4,5},{6,7,8}};
-    print_scaled(threebythree, scale);
+#include<iostream> 
+int sum_two_arrays(int array[], int secondarray[], int n);
+int main(){
+    int data1[]={1,2,3};
+    int data2[]={4,5,6};
+    std::cout<<"Sum of two arrays: " << sum_two_arrays(data1, data2, 3) << std::endl;
     return 0;
 }

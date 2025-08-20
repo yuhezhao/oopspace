@@ -1,25 +1,9 @@
-#include<iostream>
-using namespace std;
-int is_identity(int array[10][10]);
+#include <iostream>
+
+double array_mean(int array[], int n);
+
 int main() {
-    int matrix[10][10] = {
-        {1,0,0,0,0,0,0,0,0,0},
-        {0,1,0,0,0,0,0,0,0,0},
-        {0,0,1,0,0,0,0,0,0,0},
-        {0,0,0,1,0,0,0,0,0,0},
-        {0,0,0,0,1,0,0,0,0,0},
-        {0,0,0,0,0,1,0,0,0,0},
-        {0,0,0,0,0,0,1,0,0,0},
-        {0,0,0,0,0,0,0,1,0,0},
-        {0,0,0,0,0,0,0,0,1,0},
-        {0,0,0,0,0,0,0,0,0,1}
-    };
-
-    int result = is_identity(matrix);
-    if (result == 1)
-        cout << "The matrix is an identity matrix." << endl;
-    else
-        cout << "The matrix is NOT an identity matrix." << endl;
-
+    int data[] = {2, 4, 6, 8};
+    std::cout << "Mean: " << array_mean(data, 4) << std::endl;
     return 0;
 }

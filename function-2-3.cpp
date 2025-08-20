@@ -1,20 +1,24 @@
-bool is_palindrome(int integers[], int length) {
-    if (length <= 0) return false; // 题目里空数组定义为回文？题干示例说是回文，但签名要求<=0返回false
-    for (int i = 0; i < length / 2; i++) {
-        if (integers[i] != integers[length - 1 - i]) return false;
+#include<iostream>
+void two_five_nine(int array[], int n) {
+    int count_2 = 0;
+    int count_5 = 0;
+    int count_9 = 0;
+
+    for (int i = 0; i < n; ++i) {
+        switch (array[i]) {
+            case 2:
+                ++count_2;
+                break;
+            case 5:
+                ++count_5;
+                break;
+            case 9:
+                ++count_9;
+                break;
+            default:
+                break;
+        }
     }
-    return true;
-}
 
-int sum_array_elements(int integers[], int length) {
-    if (length <= 0) return -1;
-    int s = 0;
-    for (int i = 0; i < length; i++) s += integers[i];
-    return s;
-}
-
-int sum_if_palindrome(int integers[], int length) {
-    if (length <= 0) return -1;
-    if (!is_palindrome(integers, length)) return -2;
-    return sum_array_elements(integers, length);
+    std::cout << "2:" << count_2 << ";5:" << count_5 << ";9:" << count_9 << ";" << std::endl;
 }

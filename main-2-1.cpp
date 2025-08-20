@@ -1,12 +1,9 @@
 #include <iostream>
-#include <string>
-using namespace std;
 
-void print_binary_str(string decimal_number);
+int min_element(int array[], int n);
 
 int main() {
-    print_binary_str("0");      
-    print_binary_str("789");     
-    print_binary_str("123456789");
+    int data[] = {4, 2, 7, 1, 9};
+    std::cout << "Min: " << min_element(data, 5) << std::endl;
     return 0;
 }

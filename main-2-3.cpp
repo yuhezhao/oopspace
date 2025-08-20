@@ -1,21 +1,9 @@
 #include <iostream>
-using namespace std;
 
-bool is_palindrome(int integers[], int length);
-int sum_array_elements(int integers[], int length);
-int sum_if_palindrome(int integers[], int length);
+void two_five_nine(int array[], int n);
 
 int main() {
-    int p1[] = {1, 2, 3, 2, 1};  // 回文
-    int p2[] = {2, 4, 4, 2};     // 回文
-    int np[] = {1, 2, 1, 2, 1};  // 非回文
-
-    cout << boolalpha << is_palindrome(p1, 5) << "\n"; // true
-    cout << sum_if_palindrome(p1, 5) << "\n";          // 和
-
-    cout << boolalpha << is_palindrome(np, 5) << "\n"; // false
-    cout << sum_if_palindrome(np, 5) << "\n";          // -2
-
-    cout << sum_array_elements(p2, 4) << "\n";         // 简单求和
+    int data[] = {2, 9, 2, 5, 1, 9, 9, 5};
+    two_five_nine(data, 8);
     return 0;
 }

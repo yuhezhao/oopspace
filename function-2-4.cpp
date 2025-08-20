@@ -1,23 +1,12 @@
-int array_min(int integers[], int length) {
-    if (length <= 0) return -1;
-    int mn = integers[0];
-    for (int i = 1; i < length; i++)
-        if (integers[i] < mn) mn = integers[i];
-    return mn;
-}
-
-int array_max(int integers[], int length) {
-    if (length <= 0) return -1;
-    int mx = integers[0];
-    for (int i = 1; i < length; i++)
-        if (integers[i] > mx) mx = integers[i];
-    return mx;
-}
-
-int sum_min_max(int integers[], int length) {
-    if (length <= 0) return -1;
-    int mn = array_min(integers, length);
-    int mx = array_max(integers, length);
-    if (mn == -1 || mx == -1) return -1; // 防御式
-    return mn + mx;
+#include<iostream>
+bool is_ascending(int array[], int n){
+    if(n<1){
+        return false;
+    }
+    for(int i=1;i<n;i++){
+        if(array[i]<array[i-1]){
+            return false;
+        }
+    }
+    return true;
 }
