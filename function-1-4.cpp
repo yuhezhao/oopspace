@@ -1,9 +1,8 @@
 #include "Person.h"
 
 PersonList shallowCopyPersonList(PersonList pl) {
-    // Just copy the pointer and the count; no new allocation
     PersonList copy{};
-    copy.people = pl.people;
+    copy.people = pl.people;     // 指向同一块数组
     copy.numPeople = pl.numPeople;
     return copy;
 }
