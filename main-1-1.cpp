@@ -1,18 +1,20 @@
 #include <iostream>
-#include "Person.h"
-
-Person* createPersonArray(int n);
+#include "Musician.h"
 
 int main() {
-    int n = 3;
-    Person* people = createPersonArray(n);
+    Musician m1; // default
+    std::cout << "Default -> instrument: " << m1.get_instrument()
+              << ", experience: " << m1.get_experience() << "\n";
 
-    std::cout << "Created array of " << n << " Person structs:\n";
-    for (int i = 0; i < n; ++i) {
-        std::cout << i << ": " << people[i].name << ", " << people[i].age << '\n';
-    }
+    Musician m2("violin", 5);
+    std::cout << "Param    -> instrument: " << m2.get_instrument()
+              << ", experience: " << m2.get_experience() << "\n";
 
-    // cleanup
-    delete[] people;
+    // Optional: show setters work (not required by spec)
+    m1.set_instrument("flute");
+    m1.set_experience(2);
+    std::cout << "Updated  -> instrument: " << m1.get_instrument()
+              << ", experience: " << m1.get_experience() << "\n";
+
     return 0;
 }
