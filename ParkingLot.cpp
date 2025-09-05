@@ -22,7 +22,7 @@ void ParkingLot::parkVehicle(Vehicle* v) {
     vehicles.push_back(v);
 }
 
-void ParkingLot::unparkingVehicle(int id) {
+void ParkingLot::unparkVehicle(int id) {  
     auto it = std::find_if(vehicles.begin(), vehicles.end(),
                            [id](Vehicle* v) { return v->getID() == id; });
 
@@ -35,6 +35,11 @@ void ParkingLot::unparkingVehicle(int id) {
     vehicles.erase(it);
 }
 
+void ParkingLot::printStatus() const {    
+    std::cout << "Parking lot has " << vehicles.size()
+              << " vehicles parked (capacity " << capacity << ")\n";
+}
+
 int ParkingLot::countOverstayingVehicles(int maxParkingDuration) const {
     int count = 0;
     for (auto v : vehicles) {
@@ -44,3 +49,4 @@ int ParkingLot::countOverstayingVehicles(int maxParkingDuration) const {
     }
     return count;
 }
+
