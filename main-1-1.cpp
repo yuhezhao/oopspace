@@ -1,33 +1,40 @@
 #include <iostream>
-#include "wizard.h"
-#include "warrior.h"
+#include <vector>
+#include "Car.h"
+#include "Bus.h"
+#include "Motorbike.h"
 
 int main() {
-    Wizard wiz("Merlin", 100, 0, 28);         
-    Warrior war("Aragorn", 120, 17, "sword");  
+    int n;
+    std::cout << "Enter number of vehicles to park: ";
+    std::cin >> n;
 
-    std::cout << "Battle starts: " << wiz.getName()
-              << " (HP " << wiz.getHealth() << ") vs "
-              << war.getName() << " (HP " << war.getHealth() << ")\n";
+    std::vector<Vehicle*> vehicles;
 
-    bool wizardTurn = true;
+    for (int i = 0; i < n; i++) {
+        int type;
+        std::cout << "Enter vehicle type (1=Car, 2=Bus, 3=Motorbike): ";
+        std::cin >> type;
 
-    while (wiz.isAlive() && war.isAlive()) {
-        if (wizardTurn) {
-            wiz.castSpell(&war);
-        } else {
-            war.swingWeapon(&wiz);
+        Vehicle* v = nullptr;
+        if (type == 1) v = new Car(i + 1);
+        else if (type == 2) v = new Bus(i + 1);
+        else if (type == 3) v = new Motorbike(i + 1);
+
+        if (v != nullptr) {
+            vehicles.push_back(v);
         }
-        wizardTurn = !wizardTurn;
     }
 
-    std::cout << "Battle over! Winner: ";
-    if (wiz.isAlive() && !war.isAlive()) {
-        std::cout << wiz.getName() << " with " << wiz.getHealth() << " health remaining.\n";
-    } else if (!wiz.isAlive() && war.isAlive()) {
-        std::cout << war.getName() << " with " << war.getHealth() << " health remaining.\n";
-    } else {
-        std::cout << "It’s a draw.\n";
+    std::cout << "\nParking durations (seconds):\n";
+    for (auto v : vehicles) {
+        std::cout << "Vehicle ID " << v->getID()
+                  << " duration: " << v->getParkingDuration() << "s\n";
+    }
+
+    // 释放内存
+    for (auto v : vehicles) {
+        delete v;
     }
 
     return 0;
