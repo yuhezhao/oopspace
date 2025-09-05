@@ -25,7 +25,7 @@ int main() {
     int id;
     std::cout << "Enter vehicle ID to unpark: ";
     std::cin >> id;
-    lot.unparkingVehicle(id);
+    lot.unparkVehicle(id);
 
     lot.printStatus();
 
