@@ -6,5 +6,5 @@ Motorbike::Motorbike(int id) : Vehicle(id) {}
 int Motorbike::getParkingDuration() const {
     time_t now = std::time(nullptr);
     int duration = static_cast<int>(difftime(now, timeOfEntry));
-    return static_cast<int>(duration * 0.85); // 15% 折扣
+    return static_cast<int>(duration * 0.85); // Motorbike 减少 15%
 }

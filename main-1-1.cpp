@@ -29,10 +29,10 @@ int main() {
     std::cout << "\nParking durations (seconds):\n";
     for (auto v : vehicles) {
         std::cout << "Vehicle ID " << v->getID()
-                  << " duration: " << v->getParkingDuration() << "s\n";
+                  << " parking duration: "
+                  << v->getParkingDuration() << " seconds\n";
     }
 
-    // 释放内存
     for (auto v : vehicles) {
         delete v;
     }

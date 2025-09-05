@@ -6,5 +6,5 @@ Car::Car(int id) : Vehicle(id) {}
 int Car::getParkingDuration() const {
     time_t now = std::time(nullptr);
     int duration = static_cast<int>(difftime(now, timeOfEntry));
-    return static_cast<int>(duration * 0.9); // 10% 折扣
+    return static_cast<int>(duration * 0.9); // Car 减少 10%
 }

@@ -2,7 +2,6 @@
 #define VEHICLE_H
 
 #include <ctime>
-#include <string>
 
 class Vehicle {
 protected:
@@ -18,3 +17,4 @@ public:
 };
 
 #endif
+
