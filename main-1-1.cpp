@@ -1,41 +1,30 @@
 #include <iostream>
-#include <vector>
-#include "Car.h"
-#include "Bus.h"
-#include "Motorbike.h"
+#include "Appliance.h"
 
 int main() {
-    int n;
-    std::cout << "Enter number of vehicles to park: ";
-    std::cin >> n;
+    // Default-constructed appliance
+    Appliance a; // powerRating = 0, isOn = false
+    std::cout << "A: power=" << a.get_powerRating()
+              << "W, isOn=" << (a.get_isOn() ? "true" : "false")
+              << ", base consumption=" << a.getPowerConsumption() << " kWh\n";
 
-    std::vector<Vehicle*> vehicles;
+    // Parameterized constructor
+    Appliance kettle(2000); // 2000 W device
+    std::cout << "Kettle: power=" << kettle.get_powerRating()
+              << "W, isOn=" << (kettle.get_isOn() ? "true" : "false") << '\n';
 
-    for (int i = 0; i < n; i++) {
-        int type;
-        std::cout << "Enter vehicle type (1=Car, 2=Bus, 3=Motorbike): ";
-        std::cin >> type;
+    // Demonstrate setters and on/off
+    kettle.turnOn();
+    std::cout << "Kettle turned on. isOn=" << (kettle.get_isOn() ? "true" : "false") << '\n';
 
-        Vehicle* v = nullptr;
-        if (type == 1) v = new Car(i + 1);
-        else if (type == 2) v = new Bus(i + 1);
-        else if (type == 3) v = new Motorbike(i + 1);
+    kettle.set_powerRating(1800);
+    std::cout << "Kettle new power rating = " << kettle.get_powerRating() << "W\n";
 
-        if (v != nullptr) {
-            vehicles.push_back(v);
-        }
-    }
+    kettle.turnOff();
+    std::cout << "Kettle turned off. isOn=" << (kettle.get_isOn() ? "true" : "false") << '\n';
 
-    std::cout << "\nParking durations (seconds):\n";
-    for (auto v : vehicles) {
-        std::cout << "Vehicle ID " << v->getID()
-                  << " parking duration: "
-                  << v->getParkingDuration() << " seconds\n";
-    }
-
-    for (auto v : vehicles) {
-        delete v;
-    }
+    // Base class virtual returns 0.0; derived classes will override later.
+    std::cout << "Base getPowerConsumption() = " << kettle.getPowerConsumption() << " kWh\n";
 
     return 0;
 }
